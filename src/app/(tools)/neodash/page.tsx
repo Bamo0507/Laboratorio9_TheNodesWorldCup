@@ -1,5 +1,6 @@
 import { LayoutDashboard } from "lucide-react";
-import { ToolPage, DemoPlaceholder } from "@/components/tool-page";
+import { ToolPage } from "@/components/tool-page";
+import { SetupCarousel } from "@/features/neodash/setup-carousel";
 
 export default function NeoDashPage() {
   return (
@@ -9,14 +10,17 @@ export default function NeoDashPage() {
       description="Herramienta low-code que permite construir dashboards interactivos sobre Neo4j usando queries Cypher. Sin necesidad de escribir frontend: tablas, grafos, mapas, charts y más, configurados visualmente."
       accentColor="bg-blue-500/10 border-blue-500/30 text-blue-400"
       Icon={LayoutDashboard}
-      demo={
-        <DemoPlaceholder message="// Carrusel de screenshots y video demo — pendiente" />
-      }
+      demo={<SetupCarousel />}
       resources={[
         {
           label: "neodash.graphapp.io",
           href: "https://neodash.graphapp.io",
           description: "Aplicación web oficial de NeoDash. Conectá tu instancia de Neo4j y construí dashboards.",
+        },
+        {
+          label: "Galería de dashboards",
+          href: "https://neodash-gallery.graphapp.io",
+          description: "Ejemplos de dashboards construidos con NeoDash. Ideal para inspirarse y ver las capacidades de la herramienta.",
         },
         {
           label: "GitHub — neo4j-labs/neodash",
