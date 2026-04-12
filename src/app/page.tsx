@@ -1,65 +1,95 @@
-import Image from "next/image";
+import Link from "next/link";
+import { LayoutDashboard, Network, Atom, GitGraph } from "lucide-react";
+
+const tools = [
+  {
+    id: "neodash",
+    label: "NeoDash",
+    description: "Dashboard builder low-code para Neo4j. Visualizaciones con queries Cypher sin escribir frontend.",
+    href: "/neodash",
+    icon: LayoutDashboard,
+    badge: "Low-Code · Neo4j Labs",
+    accent: "border-blue-500/30 hover:border-blue-500/60 group-hover:text-blue-400",
+    iconColor: "text-blue-400",
+    bg: "group-hover:bg-blue-500/5",
+  },
+  {
+    id: "cytoscapejs",
+    label: "Cytoscape.js",
+    description: "Librería JS open source para grafos en el browser. Layouts avanzados, styling declarativo y extensible.",
+    href: "/cytoscapejs",
+    icon: Network,
+    badge: "Open Source · MIT",
+    accent: "border-emerald-500/30 hover:border-emerald-500/60 group-hover:text-emerald-400",
+    iconColor: "text-emerald-400",
+    bg: "group-hover:bg-emerald-500/5",
+  },
+  {
+    id: "react-force-graph",
+    label: "react-force-graph",
+    description: "Visualización de grafos con simulación de fuerzas para React. WebGL, 2D y 3D out of the box.",
+    href: "/react-force-graph",
+    icon: Atom,
+    badge: "React · Open Source",
+    accent: "border-violet-500/30 hover:border-violet-500/60 group-hover:text-violet-400",
+    iconColor: "text-violet-400",
+    bg: "group-hover:bg-violet-500/5",
+  },
+  {
+    id: "nvl",
+    label: "NVL",
+    description: "Neo4j Visualization Library. Librería oficial de Neo4j para React, optimizada para grafos grandes.",
+    href: "/nvl",
+    icon: GitGraph,
+    badge: "Neo4j · TypeScript",
+    accent: "border-cyan-500/30 hover:border-cyan-500/60 group-hover:text-cyan-400",
+    iconColor: "text-cyan-400",
+    bg: "group-hover:bg-cyan-500/5",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="flex flex-col min-h-screen items-center justify-center px-6 py-16">
+      {/* Header */}
+      <div className="text-center mb-12 space-y-3">
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground font-[family-name:var(--font-fira-code)]">
+          Base de Datos 2 · Laboratorio 9
+        </p>
+        <h1 className="text-4xl font-bold font-[family-name:var(--font-fira-code)] text-foreground">
+          The Nodes World Cup 🇩🇪
+        </h1>
+        <p className="text-muted-foreground text-sm max-w-md mx-auto leading-relaxed">
+          Exploración comparativa de herramientas para visualización y dashboards sobre bases de datos de grafos.
+        </p>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-3xl">
+        {tools.map((tool) => {
+          const Icon = tool.icon;
+          return (
+            <Link key={tool.id} href={tool.href} className="group">
+              <div
+                className={`relative flex flex-col gap-3 rounded-xl border bg-card p-6 transition-all duration-200 cursor-pointer ${tool.accent} ${tool.bg}`}
+              >
+                <div className="flex items-center gap-3">
+                  <Icon className={`h-5 w-5 shrink-0 ${tool.iconColor}`} />
+                  <span className={`font-semibold font-[family-name:var(--font-fira-code)] text-sm text-foreground`}>
+                    {tool.label}
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {tool.description}
+                </p>
+                <span className="text-[10px] font-medium text-muted-foreground/60 font-[family-name:var(--font-fira-code)]">
+                  {tool.badge}
+                </span>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
