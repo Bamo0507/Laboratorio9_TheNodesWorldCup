@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
   Network,
-  Atom,
   GitGraph,
   Sparkles,
 } from "lucide-react";
@@ -27,14 +26,6 @@ const tools = [
     icon: Network,
     badge: "JS Library",
     color: "text-emerald-400",
-  },
-  {
-    id: "react-force-graph",
-    label: "react-force-graph",
-    href: "/react-force-graph",
-    icon: Atom,
-    badge: "React",
-    color: "text-violet-400",
   },
   {
     id: "nvl",

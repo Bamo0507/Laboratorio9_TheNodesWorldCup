@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, Network, Atom, GitGraph } from "lucide-react";
+import { LayoutDashboard, Network, GitGraph } from "lucide-react";
 
 const tools = [
   {
@@ -23,17 +23,6 @@ const tools = [
     accent: "border-emerald-500/30 hover:border-emerald-500/60 group-hover:text-emerald-400",
     iconColor: "text-emerald-400",
     bg: "group-hover:bg-emerald-500/5",
-  },
-  {
-    id: "react-force-graph",
-    label: "react-force-graph",
-    description: "Visualización de grafos con simulación de fuerzas para React. WebGL, 2D y 3D out of the box.",
-    href: "/react-force-graph",
-    icon: Atom,
-    badge: "React · Open Source",
-    accent: "border-violet-500/30 hover:border-violet-500/60 group-hover:text-violet-400",
-    iconColor: "text-violet-400",
-    bg: "group-hover:bg-violet-500/5",
   },
   {
     id: "nvl",
@@ -66,10 +55,16 @@ export default function Home() {
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-3xl">
-        {tools.map((tool) => {
+        {tools.map((tool, i) => {
           const Icon = tool.icon;
+          const isLast = i === tools.length - 1;
+          const isOdd = tools.length % 2 !== 0;
           return (
-            <Link key={tool.id} href={tool.href} className="group">
+            <Link
+              key={tool.id}
+              href={tool.href}
+              className={`group${isLast && isOdd ? " col-span-full mx-auto w-full max-w-[calc(50%-8px)]" : ""}`}
+            >
               <div
                 className={`relative flex flex-col gap-3 rounded-xl border bg-card p-6 transition-all duration-200 cursor-pointer ${tool.accent} ${tool.bg}`}
               >
