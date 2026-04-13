@@ -49,7 +49,7 @@ export default function NvlPage() {
                   {
                     title: "Grafo con nodos y relaciones etiquetadas con tooltip",
                     description:
-                      "Grafo dirigido con dos tipos de nodo (Persona y Empresa) y relaciones con etiqueta. Layout cose para posicionamiento automático. Repositorio con codigo de ejemplo avanzado: ",
+                      "Grafo dirigido con dos tipos de nodo (Persona y Empresa) y relaciones con etiqueta. Layout cose para posicionamiento automático. Repositorio con codigo de ejemplo avanzado: https://github.com/Bamo0507/Laboratorio9_TheNodesWorldCup/blob/main/src/features/nvl/neo4j-social-graph.tsx",
                     render: <Neo4jSocialGraph />,
                   }
                 ]}
