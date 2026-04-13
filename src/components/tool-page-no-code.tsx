@@ -146,7 +146,7 @@ export function LiveToolPageNoCode({
             </div>
 
             {/* Split panel: código | render */}
-            <div className="gap-0 rounded-xl border border-border overflow-hidden h-600px]">
+            <div className="gap-0 rounded-xl border border-border overflow-hidden">
               <div className="flex flex-col min-h-0 bg-card">
                 <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-muted/40 shrink-0">
                   <div className="h-2 w-2 rounded-full bg-primary/60" />
