@@ -6,6 +6,7 @@ import { CodeBlock } from "@/components/code-block";
 import { GrafoBasico } from "@/features/cytoscapejs/grafo-basico";
 import { GrafoEquipos } from "@/features/cytoscapejs/grafo-equipos";
 import { GrafoJerarquico } from "@/features/cytoscapejs/grafo-jerarquico";
+import { GrafoGrupos } from "@/features/cytoscapejs/grafo-grupos";
 
 export default function CytoscapeJsPage() {
   const codigoGrafoBasico = fs.readFileSync(
@@ -20,6 +21,11 @@ export default function CytoscapeJsPage() {
 
   const codigoGrafoJerarquico = fs.readFileSync(
     path.join(process.cwd(), "src/features/cytoscapejs/grafo-jerarquico.tsx"),
+    "utf-8"
+  );
+
+  const codigoGrafoGrupos = fs.readFileSync(
+    path.join(process.cwd(), "src/features/cytoscapejs/grafo-grupos.tsx"),
     "utf-8"
   );
 
@@ -51,6 +57,13 @@ export default function CytoscapeJsPage() {
             "Ejemplo de estructura jerárquica con roles dentro de un equipo. Usa layout breadthfirst para organizar nodos por niveles.",
           codeBlock: <CodeBlock code={codigoGrafoJerarquico} lang="tsx" />,
           render: <GrafoJerarquico />,
+        },
+        {
+          title: "Grafo de grupos del mundial",
+          description:
+            "Ejemplo con nodos de tipo Grupo y Equipo para representar pertenencia y clasificación. Se utiliza layout grid para una distribución ordenada.",
+          codeBlock: <CodeBlock code={codigoGrafoGrupos} lang="tsx" />,
+          render: <GrafoGrupos />,
         },
       ]}
       resources={[
