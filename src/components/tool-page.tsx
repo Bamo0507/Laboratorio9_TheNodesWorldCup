@@ -95,7 +95,7 @@ interface LiveToolPageProps {
   accentColor: string;
   Icon: LucideIcon;
   demos: DemoSection[];
-  resources: ResourceLink[];
+  resources?: ResourceLink[];
 }
 
 export function LiveToolPage({
@@ -186,7 +186,7 @@ export function LiveToolPage({
         <Separator />
 
         {/* Resources */}
-        <ResourcesGrid resources={resources} />
+        {resources && <ResourcesGrid resources={resources} />}
       </div>
     </div>
   );

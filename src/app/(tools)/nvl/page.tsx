@@ -31,13 +31,6 @@ export default function NvlPage() {
                   render: <GrafoBasico />,
                 }
               ]}
-        resources={[
-            {
-              label: "Documentación Oficial",
-              href: "https://neo4j.com/docs/nvl/current/installation/",
-              description: "Guía completa de uso"
-            }
-        ]}
       />
       <LiveToolPageNoCode
           name="NVL Advanced"
